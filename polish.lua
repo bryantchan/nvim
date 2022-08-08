@@ -136,8 +136,6 @@ return function()
         desc = "Lazy Git"
     })
 
-    map("n", "<leader>t", "<cmd>ToggleTerm direction=float<cr>")
-
     -- Comment
     if utils.is_available "Comment.nvim" then
         map("v", "gcc", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", {
