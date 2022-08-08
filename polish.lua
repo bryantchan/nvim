@@ -47,6 +47,12 @@ return function()
     map("n", "<leader>gx", "<cmd>:G blame<cr>")
     map("n", "<leader>gs", "<cmd>:Gitsigns toggle_current_line_blame<cr>")
 
+    map("n", "<leader>mm", function()
+        require("telescope.builtin").keymaps()
+    end, {
+        desc = "Show keymaps"
+    })
+
     map("n", "<leader>;", function()
         require("telescope.builtin").current_buffer_fuzzy_find()
     end, {
