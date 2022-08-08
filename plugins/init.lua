@@ -45,11 +45,16 @@ return {
         "nanozuki/tabby.nvim",
         config = function()
             require("tabby").setup({
-                tabline = require("user.plugins.tabby-conf").active_wins_at_end
+                tabline = require("user.plugins.tabby-conf").tab_only
             })
         end
     },
     -- ["lewis6991/gitsigns.nvim"] = { disable = true },
+    {
+        "EdenEast/nightfox.nvim",
+        config = function()
+        end
+    },
     {
         "nvim-telescope/telescope-live-grep-args.nvim",
         config = function()
