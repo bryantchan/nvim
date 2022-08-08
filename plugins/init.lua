@@ -41,28 +41,15 @@ return {
             require("todo-comments").setup {}
         end
     },
-    -- {
-    --     "nanozuki/tabby.nvim",
-    --     config = function()
-    --         require("tabby").setup({
-    --             tabline = require("tabby.presets").active_wins_at_end
-    --         })
-    --     end
-    -- },
-    -- ["lewis6991/gitsigns.nvim"] = { disable = true },
-    {"dracula/vim"},
-    {"EdenEast/nightfox.nvim" --  config = function()
-    --   require('nightfox').setup({
-    --     options = {
-    --       styles = {
-    --         comments = "italic",
-    --         keywords = "bold",
-    --         types = "italic,bold",
-    --       },
-    --     }
-    --   })
-    -- end
+    {
+        "nanozuki/tabby.nvim",
+        config = function()
+            require("tabby").setup({
+                tabline = require("user.plugins.tabby-conf").active_wins_at_end
+            })
+        end
     },
+    -- ["lewis6991/gitsigns.nvim"] = { disable = true },
     {
         "nvim-telescope/telescope-live-grep-args.nvim",
         config = function()
