@@ -43,14 +43,23 @@ return function()
     map("n", "<S-p>", '"+p')
     map("x", "p", '"_dP')
 
-    map("n", "<leader>xx", "<cmd>TodoTrouble<cr>")
-    map("n", "<leader>gx", "<cmd>:G blame<cr>")
-    map("n", "<leader>gs", "<cmd>:Gitsigns toggle_current_line_blame<cr>")
+    map("n", "<leader>gb", "<cmd>:G blame<cr>")
+    map("n", "<leader>lb", "<cmd>:Gitsigns toggle_current_line_blame<cr>")
+    map("n", "<leader>cd", "<cmd>:DogeGenerate<cr>")
 
-    map("n", "<leader>mm", function()
+    -- Find files
+    -- ----------
+
+    map("n", "<leader>km", function()
         require("telescope.builtin").keymaps()
     end, {
         desc = "Show keymaps"
+    })
+
+    map("n", "<leader>mm", function()
+        require("telescope").extensions.vim_bookmarks.all()
+    end, {
+        desc = "Show Bookmarks"
     })
 
     map("n", "<leader>;", function()
@@ -75,7 +84,7 @@ return function()
 
     map("n", "<leader>b", function()
         require("telescope.builtin").buffers({
-            sort_lastused = true,
+            sort_mru = true,
             ignore_current_buffer = true
         })
     end, {
@@ -94,28 +103,45 @@ return function()
         desc = "Find registers"
     })
 
-    map("n", "<leader>[", function()
+    map("n", "<leader>x", function()
+        require("telescope.builtin").diagnostics({
+            bufnr = 0
+        })
+    end, {
+        desc = "Find Diagnostics in current buffer"
+    })
+
+    map("n", "<leader>]", function()
         require("telescope.builtin").diagnostics()
     end, {
-        desc = "Find DiagnosticError"
+        desc = "Find All Diagnostics"
     })
 
-    map("n", "<leader>gb", function()
-        require("telescope.builtin").git_branches()
-    end, {
-        desc = "Checkout branches"
-    })
+    -- ====
+    -- Git 
+    -- ====
+    -- map("n", "<leader>gb", function()
+    --     require("telescope.builtin").git_branches()
+    -- end, {
+    --     desc = "Checkout branches"
+    -- })
+    --
+    -- map("n", "<leader>gc", function()
+    --     require("telescope.builtin").git_commits()
+    -- end, {
+    --     desc = "Git Commits"
+    -- })
+    --
+    -- map("n", "<leader>gm", function()
+    --     require("telescope.builtin").git_bcommits()
+    -- end, {
+    --     desc = "Git Commits for current buffer"
+    -- })
 
-    map("n", "<leader>gc", function()
-        require("telescope.builtin").git_commits()
+    map("n", "<leader>q", function()
+        require("telescope.builtin").quickfix()
     end, {
-        desc = "Git Commits"
-    })
-
-    map("n", "<leader>gm", function()
-        require("telescope.builtin").git_bcommits()
-    end, {
-        desc = "Git Commits for current buffer"
+        desc = "Quick fix"
     })
 
     map("n", "<leader>e", function()
@@ -124,21 +150,14 @@ return function()
         desc = "Document Symbols"
     })
 
-    map("n", "<leader>z", function()
-        require("telescope.builtin").diagnostics()
-    end, {
-        desc = "Lists Diagnostic"
-    })
-
-    map("n", "<leader>gg", function()
-        require("core.utils").toggle_term_cmd "lazygit"
-    end, {
-        desc = "Lazy Git"
-    })
-
     -- Comment
     if utils.is_available "Comment.nvim" then
-        map("v", "gcc", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", {
+        map("n", "<leader><Space>", function()
+            require("Comment.api").toggle_current_linewise()
+        end, {
+            desc = "Comment line"
+        })
+        map("v", "<leader><Space>", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", {
             desc = "Toggle comment line"
         })
     end

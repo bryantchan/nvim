@@ -6,9 +6,9 @@ return {
         prompt_prefix = "",
         mappings = {
             i = {
-                ["<C-g>"] = actions.send_selected_to_qflist + actions.open_qflist
+                ["<C-g>"] = actions.send_selected_to_qflist
             }
         }
     },
-    extensions = {'live_grep_args'}
+    extensions = {'live_grep_args', 'vim_bookmarks'}
 }

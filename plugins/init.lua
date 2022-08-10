@@ -22,25 +22,26 @@ return {
     ["akinsho/nvim-toggleterm.lua"] = {
         disable = true
     },
-    {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup {
-                position = "left"
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    },
-    {
-        "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("todo-comments").setup {}
-        end
-    },
+    -- ["lewis6991/gitsigns.nvim"] = { disable = true },
+    -- {
+    --     "folke/trouble.nvim",
+    --     requires = "kyazdani42/nvim-web-devicons",
+    --     config = function()
+    --         require("trouble").setup {
+    --             position = "left"
+    --             -- your configuration comes here
+    --             -- or leave it empty to use the default settings
+    --             -- refer to the configuration section below
+    --         }
+    --     end
+    -- },
+    -- {
+    --     "folke/todo-comments.nvim",
+    --     requires = "nvim-lua/plenary.nvim",
+    --     config = function()
+    --         require("todo-comments").setup {}
+    --     end
+    -- },
     {
         "nanozuki/tabby.nvim",
         config = function()
@@ -49,7 +50,6 @@ return {
             })
         end
     },
-    -- ["lewis6991/gitsigns.nvim"] = { disable = true },
     {
         "EdenEast/nightfox.nvim",
         config = function()
@@ -61,11 +61,31 @@ return {
             require('telescope').load_extension('live_grep_args')
         end
     },
+    {
+        "tiagovla/scope.nvim",
+        config = function()
+            require("scope").setup()
+        end
+    },
+    {
+        'tom-anders/telescope-vim-bookmarks.nvim',
+        config = function()
+            require('telescope').load_extension('vim_bookmarks')
+        end,
+    },
+    {
+        'kkoomen/vim-doge',
+        run = ":call doge#install()",
+        config = function()
+            require("user.plugins.vim-doge-conf").setup()
+        end,
+        cmd = { "DogeGenerate", "DogeCreateDocStandard" },
+    },
+    {'MattesGroeger/vim-bookmarks'},
     {'Shougo/defx.nvim'},
     {'mattn/emmet-vim'},
     {'alvan/vim-closetag'},
     {'maxmellon/vim-jsx-pretty'},
-    {'kkoomen/vim-doge'},
     {"tpope/vim-repeat"},
     {"tpope/vim-fugitive"},
     {"tpope/vim-surround"},
