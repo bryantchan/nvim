@@ -50,13 +50,13 @@ return function()
     -- Find files
     -- ----------
 
-    map("n", "<leader>km", function()
+    map("n", "<leader>mm", function()
         require("telescope.builtin").keymaps()
     end, {
         desc = "Show keymaps"
     })
 
-    map("n", "<leader>mm", function()
+    map("n", "ma", function()
         require("telescope").extensions.vim_bookmarks.all()
     end, {
         desc = "Show Bookmarks"
