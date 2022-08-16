@@ -43,9 +43,8 @@ return function()
     map("n", "<S-p>", '"+p')
     map("x", "p", '"_dP')
 
-    map("n", "<leader>gb", "<cmd>:G blame<cr>")
-    map("n", "<leader>lb", "<cmd>:Gitsigns toggle_current_line_blame<cr>")
-    map("n", "<leader>cd", "<cmd>:DogeGenerate<cr>")
+    map("n", "gb", "<cmd>:G blame<cr>")
+    map("n", "<leader>dd", "<cmd>:DogeGenerate<cr>")
 
     -- Find files
     -- ----------
@@ -74,6 +73,12 @@ return function()
         })
     end, {
         desc = "Telescope search files"
+    })
+
+    map("n", "<leader>s", function()
+        require("telescope.builtin").grep_string()
+    end, {
+        desc = "Telescope search current word"
     })
 
     map("n", "<leader>r", function()
@@ -153,11 +158,13 @@ return function()
     -- Comment
     if utils.is_available "Comment.nvim" then
         map("n", "<leader><Space>", function()
-            require("Comment.api").toggle_current_linewise()
+            require("Comment.api").toggle.linewise.current()
         end, {
             desc = "Comment line"
         })
-        map("v", "<leader><Space>", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", {
+        map("v", "<leader><Space>",
+            "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+        {
             desc = "Toggle comment line"
         })
     end
