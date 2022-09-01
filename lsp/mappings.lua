@@ -1,6 +1,6 @@
 return {
     n = {
-        gi = function()
+        ge = function()
             require("telescope.builtin").lsp_implementations()
         end,
         gr = function()

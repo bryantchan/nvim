@@ -81,6 +81,27 @@ return {
         end,
         cmd = { "DogeGenerate", "DogeCreateDocStandard" },
     },
+    {
+        "f-person/auto-dark-mode.nvim",
+        config = function()
+            local auto_dark_mode = require('auto-dark-mode')
+            auto_dark_mode.setup({
+                update_interval = 1000,
+	            set_dark_mode = function()
+		            vim.api.nvim_set_option('background', 'dark')
+		            vim.cmd('colorscheme nightfox')
+	            end,
+	            set_light_mode = function()
+		            vim.api.nvim_set_option('background', 'light')
+		            vim.cmd('colorscheme iceberg')
+	            end,
+            })
+            -- auto_dark_mode.init()
+        end
+    },
+    { "arcticicestudio/nord-vim" },
+    { "cocopon/iceberg.vim" },
+    { "ellisonleao/gruvbox.nvim" },
     {'MattesGroeger/vim-bookmarks'},
     {'Shougo/defx.nvim'},
     {'mattn/emmet-vim'},
