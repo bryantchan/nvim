@@ -48,6 +48,7 @@ return function()
 
     -- Find files
     -- ----------
+    -- map("n", "sf", "<cmd>:Telescope file_browser<cr>")
 
     map("n", "<leader>mm", function()
         require("telescope.builtin").keymaps()
@@ -59,6 +60,14 @@ return function()
         require("telescope").extensions.vim_bookmarks.all()
     end, {
         desc = "Show Bookmarks"
+    })
+
+    map("n", "sf", function()
+        require("telescope").extensions.file_browser.file_browser({
+            path = "%:p:h"
+        })
+    end, {
+        desc = "File Browser"
     })
 
     map("n", "<leader>;", function()
@@ -162,9 +171,7 @@ return function()
         end, {
             desc = "Comment line"
         })
-        map("v", "<leader><Space>",
-            "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
-        {
+        map("v", "<leader><Space>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", {
             desc = "Toggle comment line"
         })
     end

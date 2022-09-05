@@ -1,6 +1,7 @@
 return {
-    -- You can disable default plugins as follows:
-    -- ["goolord/alpha-nvim"] = { disable = true },
+    ["NvChad/nvim-colorizer.lua"] = {
+        disable = true
+    },
     ["folke/which-key.nvim"] = {
         disable = true
     },
@@ -16,32 +17,9 @@ return {
     ["karb94/neoscroll.nvim"] = {
         disable = true
     },
-    -- ["declancm/cinnamon.nvim"] = {
-    --     disable = true
-    -- },
     ["akinsho/nvim-toggleterm.lua"] = {
         disable = true
     },
-    -- ["lewis6991/gitsigns.nvim"] = { disable = true },
-    -- {
-    --     "folke/trouble.nvim",
-    --     requires = "kyazdani42/nvim-web-devicons",
-    --     config = function()
-    --         require("trouble").setup {
-    --             position = "left"
-    --             -- your configuration comes here
-    --             -- or leave it empty to use the default settings
-    --             -- refer to the configuration section below
-    --         }
-    --     end
-    -- },
-    -- {
-    --     "folke/todo-comments.nvim",
-    --     requires = "nvim-lua/plenary.nvim",
-    --     config = function()
-    --         require("todo-comments").setup {}
-    --     end
-    -- },
     {
         "nanozuki/tabby.nvim",
         config = function()
@@ -51,8 +29,15 @@ return {
         end
     },
     {
-        "EdenEast/nightfox.nvim",
+        "tiagovla/scope.nvim",
         config = function()
+            require("scope").setup()
+        end
+    },
+    {
+        'nvim-telescope/telescope-file-browser.nvim',
+        config = function()
+            require('telescope').load_extension('file_browser')
         end
     },
     {
@@ -62,16 +47,10 @@ return {
         end
     },
     {
-        "tiagovla/scope.nvim",
-        config = function()
-            require("scope").setup()
-        end
-    },
-    {
         'tom-anders/telescope-vim-bookmarks.nvim',
         config = function()
             require('telescope').load_extension('vim_bookmarks')
-        end,
+        end
     },
     {
         'kkoomen/vim-doge',
@@ -79,31 +58,15 @@ return {
         config = function()
             require("user.plugins.vim-doge-conf").setup()
         end,
-        cmd = { "DogeGenerate", "DogeCreateDocStandard" },
+        cmd = {"DogeGenerate", "DogeCreateDocStandard"}
     },
     {
-        "f-person/auto-dark-mode.nvim",
+        "EdenEast/nightfox.nvim",
         config = function()
-            local auto_dark_mode = require('auto-dark-mode')
-            auto_dark_mode.setup({
-                update_interval = 1000,
-	            set_dark_mode = function()
-		            vim.api.nvim_set_option('background', 'dark')
-		            vim.cmd('colorscheme nightfox')
-	            end,
-	            set_light_mode = function()
-		            vim.api.nvim_set_option('background', 'light')
-		            vim.cmd('colorscheme iceberg')
-	            end,
-            })
-            -- auto_dark_mode.init()
         end
     },
-    { "arcticicestudio/nord-vim" },
-    { "cocopon/iceberg.vim" },
-    { "ellisonleao/gruvbox.nvim" },
+    {"cocopon/iceberg.vim"},
     {'MattesGroeger/vim-bookmarks'},
-    {'Shougo/defx.nvim'},
     {'mattn/emmet-vim'},
     {'alvan/vim-closetag'},
     {'maxmellon/vim-jsx-pretty'},
