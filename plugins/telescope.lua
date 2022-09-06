@@ -16,13 +16,19 @@ return {
         'vim_bookmarks',
         file_browser = {
             -- disables netrw and use telescope-file-browser in its place
+            hidden = true,
             hijack_netrw = true,
+	        grouped = true,
+	        sorting_strategy = 'ascending',
+	        initial_mode = 'normal',
             mappings = {
                 ["i"] = {
-                    -- your custom insert mode mappings
+                    ["<C-h>"] = fb_actions.goto_parent_dir,
+                    ["<C-l>"] = actions.select_default,
                 },
                 ["n"] = {
-                    ["<backspace>"] = fb_actions.goto_parent_dir
+                    ["h"] = fb_actions.goto_parent_dir,
+                    ["l"] = actions.select_default,
                     -- your custom normal mode mappings
                 }
             }
