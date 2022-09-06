@@ -19,8 +19,10 @@ return {
             hidden = true,
             hijack_netrw = true,
 	        grouped = true,
+	        select_buffer = true,
 	        sorting_strategy = 'ascending',
 	        initial_mode = 'normal',
+	        default_selection_index = 2,
             mappings = {
                 ["i"] = {
                     ["<C-h>"] = fb_actions.goto_parent_dir,

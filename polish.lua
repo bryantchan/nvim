@@ -1,4 +1,8 @@
 return function()
+    require('notify').setup({
+        background_colour = "#000000",
+    });
+
     local map = vim.keymap.set
     local set = vim.opt
     local utils = require "core.utils"
