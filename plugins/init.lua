@@ -1,4 +1,7 @@
 return {
+    ["stevearc/aerial.nvim"] = {
+        disable = true
+    },
     ["NvChad/nvim-colorizer.lua"] = {
         disable = true
     },
