@@ -23,14 +23,14 @@ return {
     ["akinsho/nvim-toggleterm.lua"] = {
         disable = true
     },
-    {
-        "nanozuki/tabby.nvim",
-        config = function()
-            require("tabby").setup({
-                tabline = require("user.plugins.tabby-conf").tab_only
-            })
-        end
-    },
+    -- {
+    --     "nanozuki/tabby.nvim",
+    --     config = function()
+    --         require("tabby").setup({
+    --             tabline = require("user.plugins.tabby-conf").tab_only
+    --         })
+    --     end
+    -- },
     {
         "tiagovla/scope.nvim",
         config = function()
@@ -76,5 +76,6 @@ return {
     {"tpope/vim-repeat"},
     {"tpope/vim-fugitive"},
     {"tpope/vim-surround"},
+    {"Mofiqul/dracula.nvim"},
     {"mg979/vim-visual-multi"}
 }
