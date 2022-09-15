@@ -26,7 +26,6 @@ return function()
     -- Set key bindings
     map("n", "<C-s>", ":w!<CR>")
     map("n", "<C-a>", "gg<S-v>G")
-    map("n", "sgs", ":G<CR>")
     -- Edit vimr configuration file
     map("n", "<leader><S-e>", "<cmd>e ~/.config/nvim/lua/user/init.lua<CR>")
 
@@ -47,12 +46,32 @@ return function()
     map("n", "<S-p>", '"+p')
     map("x", "p", '"_dP')
 
-    map("n", "gb", "<cmd>:G blame<cr>")
     map("n", "<leader>dd", "<cmd>:DogeGenerate<cr>")
 
-    -- Find files
-    -- ----------
-    -- map("n", "sf", "<cmd>:Telescope file_browser<cr>")
+    -- ====
+    -- Git 
+    -- ====
+    map("n", "<leader>gs", ":G<CR>")
+    map("n", "<leader>gl", ":G blame<CR>")
+
+    map("n", "<leader>gb", function()
+        require("telescope.builtin").git_branches()
+    end, {
+        desc = "Checkout branches"
+    })
+
+    map("n", "<leader>gc", function()
+        require("telescope.builtin").git_commits()
+    end, {
+        desc = "Git Commits"
+    })
+
+    map("n", "<leader>gm", function()
+        require("telescope.builtin").git_bcommits()
+    end, {
+        desc = "Git Commits for current buffer"
+    })
+    -- --
 
     map("n", "<leader>mm", function()
         require("telescope.builtin").keymaps()
@@ -134,27 +153,6 @@ return function()
     end, {
         desc = "Find All Diagnostics"
     })
-
-    -- ====
-    -- Git 
-    -- ====
-    -- map("n", "<leader>gb", function()
-    --     require("telescope.builtin").git_branches()
-    -- end, {
-    --     desc = "Checkout branches"
-    -- })
-    --
-    -- map("n", "<leader>gc", function()
-    --     require("telescope.builtin").git_commits()
-    -- end, {
-    --     desc = "Git Commits"
-    -- })
-    --
-    -- map("n", "<leader>gm", function()
-    --     require("telescope.builtin").git_bcommits()
-    -- end, {
-    --     desc = "Git Commits for current buffer"
-    -- })
 
     map("n", "<leader>q", function()
         require("telescope.builtin").quickfix()
