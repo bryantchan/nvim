@@ -57,7 +57,10 @@ return {
     "EdenEast/nightfox.nvim",
     config = function() end,
   },
-  { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
+  {
+    "sindrets/diffview.nvim",
+    requires = "nvim-lua/plenary.nvim",
+  },
   { "cocopon/iceberg.vim" },
   { "MattesGroeger/vim-bookmarks" },
   { "mattn/emmet-vim" },
