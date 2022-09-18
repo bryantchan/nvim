@@ -1,3 +1,3 @@
 return {
-    ensure_installed = {"tsserver"}
+  ensure_installed = { "tsserver" },
 }

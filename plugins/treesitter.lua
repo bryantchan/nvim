@@ -1,3 +1,3 @@
 return {
-    ensure_installed = {"lua", "javascript", "typescript"}
+  ensure_installed = { "lua", "javascript", "typescript" },
 }
