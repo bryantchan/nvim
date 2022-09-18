@@ -1,10 +1,4 @@
 return {
-  ["stevearc/aerial.nvim"] = {
-    disable = true,
-  },
-  ["NvChad/nvim-colorizer.lua"] = {
-    disable = true,
-  },
   ["folke/which-key.nvim"] = {
     disable = true,
   },
@@ -48,6 +42,10 @@ return {
     config = function() require("telescope").load_extension "vim_bookmarks" end,
   },
   {
+    "nvim-telescope/telescope-project.nvim",
+    config = function() require("telescope").load_extension "project" end,
+  },
+  {
     "kkoomen/vim-doge",
     run = ":call doge#install()",
     config = function() require("user.plugins.vim-doge-conf").setup() end,
@@ -64,11 +62,7 @@ return {
   { "cocopon/iceberg.vim" },
   { "MattesGroeger/vim-bookmarks" },
   { "mattn/emmet-vim" },
-  { "alvan/vim-closetag" },
-  { "maxmellon/vim-jsx-pretty" },
-  { "tpope/vim-repeat" },
   { "tpope/vim-fugitive" },
-  { "tpope/vim-surround" },
   { "Mofiqul/dracula.nvim" },
   { "mg979/vim-visual-multi" },
 }

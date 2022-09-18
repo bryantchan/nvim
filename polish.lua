@@ -4,14 +4,7 @@ return function()
   }
 
   local map = vim.keymap.set
-  local set = vim.opt
   local utils = require "core.utils"
-
-  -- Set options
-  set.timeoutlen = 600
-
-  -- Remap space as leader key
-  vim.g.mapleader = ";"
 
   map("n", "sh", "<C-w>h")
   map("n", "sk", "<C-w>k")
@@ -47,6 +40,7 @@ return function()
   map("x", "p", '"_dP')
 
   map("n", "<leader>dd", "<cmd>:DogeGenerate<cr>")
+  map("n", "<C-b>", "<cmd>:AerialToggle<cr>")
 
   -- ====
   -- Git
@@ -124,6 +118,10 @@ return function()
 
   map("n", "<leader>o", function() require("telescope.builtin").oldfiles() end, {
     desc = "Find old files",
+  })
+
+  map("n", "<leader>p", function() require("telescope").extensions.project.project() end, {
+    desc = "Project Picker",
   })
 
   map("n", "<leader>y", function() require("telescope.builtin").registers() end, {

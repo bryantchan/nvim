@@ -9,6 +9,7 @@ return {
   extensions = {
     "live_grep_args",
     "vim_bookmarks",
+    "project",
     file_browser = {
       -- disables netrw and use telescope-file-browser in its place
       hidden = true,
