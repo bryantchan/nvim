@@ -65,4 +65,6 @@ return {
   { "tpope/vim-fugitive" },
   { "Mofiqul/dracula.nvim" },
   { "mg979/vim-visual-multi" },
+  { "tpope/vim-surround" },
+  { "ggandor/lightspeed.nvim" },
 }
