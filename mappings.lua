@@ -18,6 +18,8 @@ maps.n["<C-s>"] = { ":w!<CR>" }
 maps.n["<C-a>"] = { "gg<S-v>G" }
 -- Edit vimr configuration file
 maps.n["<leader><S-e>"] = { "<cmd>e ~/.config/nvim/lua/user/init.lua<CR>" }
+maps.n["<leader><S-m>"] = { "<cmd>e ~/.config/nvim/lua/user/mappings.lua<CR>" }
+maps.n["<leader><S-p>"] = { "<cmd>e ~/.config/nvim/lua/user/plugins/init.lua<CR>" }
 
 maps.n["zv"] = { "<C-w>|" }
 maps.n["zs"] = { "<C-w>_" }

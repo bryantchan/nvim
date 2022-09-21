@@ -2,6 +2,9 @@ return {
   ["folke/which-key.nvim"] = {
     disable = true,
   },
+  ["goolord/alpha-nvim"] = {
+    disable = true,
+  },
   ["feline-nvim/feline.nvim"] = {
     disable = true,
   },
@@ -58,4 +61,14 @@ return {
   { "mg979/vim-visual-multi" },
   { "tpope/vim-surround" },
   { "ggandor/lightspeed.nvim" },
+  {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function() require("trouble").setup(require "user.plugins.trouble-conf") end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function() require("todo-comments").setup(require "user.plugins.todo-comments-conf") end,
+  },
 }
