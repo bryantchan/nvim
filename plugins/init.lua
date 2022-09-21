@@ -2,29 +2,25 @@ return {
   ["folke/which-key.nvim"] = {
     disable = true,
   },
+  ["feline-nvim/feline.nvim"] = {
+    disable = true,
+  },
   ["akinsho/bufferline.nvim"] = {
     disable = true,
   },
   ["nvim-neo-tree/neo-tree.nvim"] = {
     disable = true,
   },
-  ["glepnir/dashboard-nvim"] = {
-    disable = true,
+  {
+    "kdheepak/tabline.nvim",
+    config = function() require("tabline").setup { enable = false } end,
+    requires = { "hoob3rt/lualine.nvim", "kyazdani42/nvim-web-devicons" },
   },
-  ["karb94/neoscroll.nvim"] = {
-    disable = true,
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function() require("lualine").setup(require "user.plugins.lualine-conf") end,
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
   },
-  ["akinsho/nvim-toggleterm.lua"] = {
-    disable = true,
-  },
-  -- {
-  --     "nanozuki/tabby.nvim",
-  --     config = function()
-  --         require("tabby").setup({
-  --             tabline = require("user.plugins.tabby-conf").tab_only
-  --         })
-  --     end
-  -- },
   {
     "tiagovla/scope.nvim",
     config = function() require("scope").setup() end,
@@ -52,14 +48,9 @@ return {
     cmd = { "DogeGenerate", "DogeCreateDocStandard" },
   },
   {
-    "EdenEast/nightfox.nvim",
-    config = function() end,
-  },
-  {
     "sindrets/diffview.nvim",
     requires = "nvim-lua/plenary.nvim",
   },
-  { "cocopon/iceberg.vim" },
   { "MattesGroeger/vim-bookmarks" },
   { "mattn/emmet-vim" },
   { "tpope/vim-fugitive" },

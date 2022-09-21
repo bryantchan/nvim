@@ -1,6 +1,8 @@
 local utils = require "core.utils"
 local maps = { n = {}, v = {}, t = {}, x = {}, [""] = {} }
 
+maps.n["f"] = { "<Plug>Lightspeed_s" }
+maps.n["F"] = { "<Plug>Lightspeed_S" }
 maps.n["sh"] = { "<C-w>h" }
 maps.n["sk"] = { "<C-w>k" }
 maps.n["sj"] = { "<C-w>j" }

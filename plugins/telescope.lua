@@ -5,6 +5,11 @@ return {
   defaults = {
     file_ignore_patterns = { ".git", "node_modules" },
     prompt_prefix = "",
+    mappings = {
+      n = {
+        ["q"] = actions.close,
+      },
+    },
   },
   extensions = {
     "live_grep_args",
