@@ -1,14 +1,52 @@
 local actions = require "telescope.actions"
 local fb_actions = require("telescope").extensions.file_browser.actions
 
+local action_state = require "telescope.actions.state"
+local action_mt = require "telescope.actions.mt"
+
+local M = {}
+
+M.yank = function(prompt_bufnr)
+  local current_picker = action_state.get_current_picker(prompt_bufnr)
+  local entry = action_state.get_selected_entry()
+  vim.fn.setreg("*", entry.value)
+  actions.close(prompt_bufnr)
+end
+
+M = action_mt.transform_mod(M)
+
+local GitMappings = {
+  i = {
+    ["<C-c>"] = M.yank,
+  },
+}
+
 return {
   defaults = {
     file_ignore_patterns = { ".git", "node_modules" },
     prompt_prefix = "",
     mappings = {
       n = {
-        ["q"] = actions.close,
+        ["<C-q>"] = actions.send_selected_to_qflist,
       },
+    },
+  },
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<C-d>"] = actions.delete_buffer + actions.move_to_top,
+        },
+      },
+    },
+    git_bcommits = {
+      mappings = GitMappings,
+    },
+    git_commits = {
+      mappings = GitMappings,
+    },
+    git_branches = {
+      mappings = GitMappings,
     },
   },
   extensions = {
