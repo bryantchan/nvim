@@ -16,6 +16,7 @@ maps.n["<leader><S-l>"] = { ":vertical resize -5<CR>" }
 -- Tabs
 maps.n["<leader>tn"] = { "<cmd>TablineTabNew<CR>" }
 maps.n["<leader>tr"] = { ":LualineRenameTab " }
+maps.n["<leader>tD"] = { ":bd<cr>" }
 maps.n["<leader>tt"] = { "<cmd>ToggleTerm<cr>" }
 
 -- Set key bindings
