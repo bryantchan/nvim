@@ -25,11 +25,7 @@ return {
   defaults = {
     file_ignore_patterns = { ".git", "node_modules" },
     prompt_prefix = "",
-    mappings = {
-      n = {
-        ["<C-q>"] = actions.send_selected_to_qflist,
-      },
-    },
+    mappings = {},
   },
   pickers = {
     buffers = {

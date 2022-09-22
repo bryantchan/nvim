@@ -16,12 +16,19 @@ maps.n["<leader><S-l>"] = { ":vertical resize -5<CR>" }
 -- Tabs
 maps.n["<leader>tn"] = { "<cmd>TablineTabNew<CR>" }
 maps.n["<leader>tr"] = { ":LualineRenameTab " }
-maps.n["<leader>tD"] = { ":bd<cr>" }
+maps.n["<leader>td"] = "<Nop>"
 maps.n["<leader>tt"] = { "<cmd>ToggleTerm<cr>" }
+
+-- quickfix
+maps.n["<Space>j"] = { "<cmd>cn<CR>" }
+maps.n["<Space>k"] = { "<cmd>cp<CR>" }
+maps.n["<Space>c"] = { "<cmd>ccl<CR>" }
+maps.n["<Space>o"] = { "<cmd>copen<CR>" }
 
 -- Set key bindings
 maps.n["<C-s>"] = { ":w!<CR>" }
 maps.n["<C-a>"] = { "gg<S-v>G" }
+
 -- Edit vimr configuration file
 maps.n["<leader><S-e>"] = { "<cmd>e ~/.config/nvim/lua/user/init.lua<CR>" }
 maps.n["<leader><S-m>"] = { "<cmd>e ~/.config/nvim/lua/user/mappings.lua<CR>" }
@@ -35,8 +42,6 @@ maps.n["ss"] = { "<cmd>split<CR>" }
 
 maps.n["<leader>w"] = { "<cmd>set wrap<CR>" }
 maps.n["<leader>nw"] = { "<cmd>set nowrap<CR>" }
-maps.n["gn"] = { "<cmd>cn<CR>" }
-maps.n["gp"] = { "<cmd>cp<CR>" }
 
 maps.n["<leader>d"] = { '"_d' }
 maps.n["x"] = { '"_x' }
