@@ -13,6 +13,11 @@ maps.n["<leader><S-j>"] = { ":resize -5<CR>" }
 maps.n["<leader><S-k>"] = { ":resize +5<CR>" }
 maps.n["<leader><S-l>"] = { ":vertical resize -5<CR>" }
 
+-- Tabs
+maps.n["<leader>tn"] = { "<cmd>TablineTabNew<CR>" }
+maps.n["<leader>tr"] = { ":LualineRenameTab " }
+maps.n["<leader>tt"] = { "<cmd>ToggleTerm<cr>" }
+
 -- Set key bindings
 maps.n["<C-s>"] = { ":w!<CR>" }
 maps.n["<C-a>"] = { "gg<S-v>G" }
